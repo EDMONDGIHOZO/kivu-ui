@@ -1,0 +1,22 @@
+@layer components {
+  .kivu-tooltip {
+    position: fixed;
+    z-index: 1000;
+    max-width: 18rem;
+    padding: 0.375rem 0.625rem;
+    border-radius: var(--kivu-radius-md);
+    background: var(--kivu-ink-900);
+    color: #fff;
+    font-family: var(--kivu-font-body);
+    font-size: var(--kivu-text-xs);
+    line-height: 1.4;
+    pointer-events: none;
+    box-shadow: var(--kivu-shadow-md);
+    animation: kivu-fade-in 120ms var(--kivu-ease);
+  }
+  :where(.dark, [data-theme="dark"]) .kivu-tooltip { background: var(--kivu-ink-100); color: var(--kivu-ink-900); }
+
+  @keyframes kivu-fade-in { from { opacity: 0; } }
+  @keyframes kivu-pop-in { from { opacity: 0; transform: translateY(-4px) scale(0.98); } }
+  @media (prefers-reduced-motion: reduce) { .kivu-tooltip { animation: none; } }
+}

@@ -1,0 +1,12 @@
+@layer components {
+  .kivu-container { width: 100%; margin-inline: auto; padding-inline: clamp(1rem, 4vw, 5rem); }
+  .kivu-container--sm { max-width: 48rem; }
+  .kivu-container--md { max-width: 64rem; }
+  .kivu-container--lg { max-width: 72rem; }
+  .kivu-container--xl { max-width: calc(var(--kivu-container) + 10rem); }
+  .kivu-container--full { max-width: none; }
+
+  .kivu-divider { margin: 0; border: 0; background: var(--kivu-border); flex: none; }
+  .kivu-divider--horizontal { width: 100%; height: 1px; }
+  .kivu-divider--vertical { width: 1px; align-self: stretch; height: auto; }
+}

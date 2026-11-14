@@ -1,0 +1,104 @@
+@layer components {
+  .kivu-btn {
+    --_bg: var(--kivu-primary);
+    --_bg-hover: var(--kivu-primary-hover);
+    --_fg: var(--kivu-primary-fg);
+    --_soft: var(--kivu-primary-soft);
+    --_soft-hover: var(--kivu-primary-soft-hover);
+    --_soft-fg: var(--kivu-primary-soft-fg);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    border: 1px solid transparent;
+    border-radius: var(--kivu-radius-md);
+    font-family: var(--kivu-font-body);
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    transition:
+      background-color var(--kivu-duration) var(--kivu-ease),
+      border-color var(--kivu-duration) var(--kivu-ease),
+      color var(--kivu-duration) var(--kivu-ease),
+      box-shadow var(--kivu-duration) var(--kivu-ease),
+      transform var(--kivu-duration) var(--kivu-ease);
+  }
+  .kivu-btn:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--kivu-ring); }
+  .kivu-btn:active:not(:disabled) { transform: translateY(1px); }
+  .kivu-btn:disabled,
+  .kivu-btn[aria-disabled="true"] { opacity: 0.55; cursor: not-allowed; pointer-events: none; }
+
+  .kivu-btn--tone-accent {
+    --_bg: var(--kivu-accent-500);
+    --_bg-hover: var(--kivu-accent-600);
+    --_fg: var(--kivu-accent-fg);
+    --_soft: var(--kivu-accent-50);
+    --_soft-hover: var(--kivu-accent-100);
+    --_soft-fg: var(--kivu-accent-700);
+  }
+  .kivu-btn--tone-danger {
+    --_bg: var(--kivu-danger-500);
+    --_bg-hover: color-mix(in srgb, var(--kivu-danger-500) 85%, black);
+    --_fg: #fff;
+    --_soft: var(--kivu-danger-50);
+    --_soft-hover: color-mix(in srgb, var(--kivu-danger-500) 22%, transparent);
+    --_soft-fg: var(--kivu-danger-500);
+  }
+
+  /* Sizes: sm 36px, md 48px, lg 56px */
+  .kivu-btn--sm { min-height: 2.25rem; padding: 0 1rem; font-size: var(--kivu-text-sm); }
+  .kivu-btn--md { min-height: 3rem; padding: 0 2rem; font-size: 0.9375rem; }
+  .kivu-btn--lg { min-height: 3.5rem; padding: 0 2.25rem; font-size: var(--kivu-text-md); }
+  .kivu-btn--full { display: flex; width: 100%; }
+
+  /* Variants */
+  .kivu-btn--solid { background: var(--_bg); color: var(--_fg); }
+  .kivu-btn--solid:hover { background: var(--_bg-hover); }
+
+  .kivu-btn--soft { background: var(--_soft); color: var(--_soft-fg); }
+  .kivu-btn--soft:hover { background: var(--_soft-hover); }
+
+  .kivu-btn--outline { background: transparent; color: var(--_soft-fg); border-color: currentColor; }
+  .kivu-btn--outline:hover { background: var(--_soft); }
+
+  .kivu-btn--ghost { background: transparent; color: var(--_soft-fg); }
+  .kivu-btn--ghost:hover { background: var(--_soft); }
+
+  /* Frosted button for use on imagery / brand backgrounds */
+  .kivu-btn--glass {
+    background: rgb(255 255 255 / 0.15);
+    color: #fff;
+    border-color: rgb(255 255 255 / 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .kivu-btn--glass:hover { background: rgb(255 255 255 / 0.25); }
+
+  .kivu-btn--white { background: #fff; color: var(--kivu-primary-600); box-shadow: var(--kivu-shadow-md); }
+  .kivu-btn--white:hover { background: var(--kivu-primary-50); }
+
+  .kivu-btn--link {
+    min-height: 0;
+    padding: 0;
+    background: none;
+    color: var(--_soft-fg);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .kivu-btn--link:hover { color: var(--_bg-hover); }
+
+  .kivu-btn--loading .kivu-btn__label { opacity: 0.8; }
+
+  /* Icon buttons */
+  .kivu-icon-btn { padding: 0; flex: none; }
+  .kivu-icon-btn--circle { border-radius: var(--kivu-radius-full); }
+  .kivu-icon-btn--square { border-radius: var(--kivu-radius-lg); }
+  .kivu-icon-btn--sm { width: 2rem; height: 2rem; font-size: 0.875rem; }
+  .kivu-icon-btn--md { width: 2.75rem; height: 2.75rem; font-size: 1.125rem; }
+  .kivu-icon-btn--lg { width: 3.5rem; height: 3.5rem; font-size: 1.375rem; }
+  .kivu-icon-btn > svg { width: 1em; height: 1em; }
+}

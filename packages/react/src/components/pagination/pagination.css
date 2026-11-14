@@ -1,0 +1,46 @@
+@layer components {
+  .kivu-pagination {
+    --_h: 2.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: var(--kivu-font-body);
+    font-size: var(--kivu-text-sm);
+    color: var(--kivu-fg);
+  }
+  .kivu-pagination--sm { --_h: 2rem; font-size: var(--kivu-text-xs); }
+  .kivu-pagination__list { display: flex; align-items: center; gap: 0.25rem; margin: 0; padding: 0; list-style: none; }
+  .kivu-pagination__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    min-width: var(--_h);
+    height: var(--_h);
+    padding: 0 0.5rem;
+    border: 1px solid transparent;
+    border-radius: var(--kivu-radius-md);
+    background: transparent;
+    color: var(--kivu-fg-muted);
+    font: inherit;
+    font-variant-numeric: tabular-nums;
+    cursor: pointer;
+    transition: background-color var(--kivu-duration) var(--kivu-ease), color var(--kivu-duration) var(--kivu-ease);
+  }
+  .kivu-pagination__btn:hover:not(:disabled) { background: var(--kivu-bg-subtle); color: var(--kivu-fg); }
+  .kivu-pagination__btn:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--kivu-ring); }
+  .kivu-pagination__btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .kivu-pagination__page[aria-current="page"] {
+    border-color: var(--kivu-border-strong);
+    background: var(--kivu-surface);
+    color: var(--kivu-fg);
+    font-weight: 600;
+    box-shadow: var(--kivu-shadow-sm);
+  }
+  .kivu-pagination__step { padding: 0 0.625rem; }
+  .kivu-pagination__step > svg { width: 1em; height: 1em; }
+  .kivu-pagination__ellipsis { display: inline-flex; justify-content: center; min-width: 1.5rem; color: var(--kivu-fg-subtle); }
+  .kivu-pagination__status { padding: 0 0.5rem; color: var(--kivu-fg-muted); font-variant-numeric: tabular-nums; }
+  @media (max-width: 40rem) { .kivu-pagination__step-text { display: none; } }
+}

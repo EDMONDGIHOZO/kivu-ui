@@ -1,0 +1,68 @@
+@layer components {
+  .kivu-drawer {
+    /* Explicit sizing: resets such as Tailwind preflight change dialog defaults. */
+    position: fixed;
+    inset: 0 auto 0 auto;
+    width: 100%;
+    max-width: calc(100vw - 3rem);
+    height: 100dvh;
+    max-height: 100dvh;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: var(--kivu-surface);
+    color: var(--kivu-fg);
+    box-shadow: var(--kivu-shadow-xl);
+    font-family: var(--kivu-font-body);
+  }
+  .kivu-drawer--right { margin-left: auto; right: 0; }
+  .kivu-drawer--left { margin-right: auto; left: 0; }
+  .kivu-drawer--sm { width: 20rem; }
+  .kivu-drawer--md { width: 28rem; }
+  .kivu-drawer--lg { width: 40rem; }
+  .kivu-drawer::backdrop { background: rgb(22 38 51 / 0.45); backdrop-filter: blur(2px); }
+  .kivu-drawer[open] { animation: kivu-drawer-in-right 220ms var(--kivu-ease); }
+  .kivu-drawer--left[open] { animation-name: kivu-drawer-in-left; }
+  @keyframes kivu-drawer-in-right { from { transform: translateX(100%); } }
+  @keyframes kivu-drawer-in-left { from { transform: translateX(-100%); } }
+  @media (prefers-reduced-motion: reduce) { .kivu-drawer[open] { animation: none; } }
+
+  .kivu-drawer__panel { display: flex; flex-direction: column; height: 100%; }
+  .kivu-drawer__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--kivu-border);
+  }
+  .kivu-drawer__heading { display: flex; flex-direction: column; gap: 0.25rem; min-width: 0; flex: 1; }
+  .kivu-drawer__title { margin: 0; font-family: var(--kivu-font-display); font-size: var(--kivu-text-lg); font-weight: 600; line-height: 1.3; }
+  .kivu-drawer__description { margin: 0; font-size: var(--kivu-text-sm); color: var(--kivu-fg-muted); }
+  .kivu-drawer__close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 2rem;
+    height: 2rem;
+    margin-left: auto;
+    border: 0;
+    border-radius: var(--kivu-radius-md);
+    background: var(--kivu-bg-subtle);
+    color: var(--kivu-fg-muted);
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .kivu-drawer__close:hover { color: var(--kivu-fg); }
+  .kivu-drawer__close:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--kivu-ring); }
+  .kivu-drawer__body { flex: 1; min-height: 0; overflow-y: auto; padding: 1.5rem; font-size: var(--kivu-text-sm); line-height: 1.6; }
+  .kivu-drawer--bare .kivu-drawer__body { padding: 0; }
+  .kivu-drawer__footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--kivu-border);
+    background: var(--kivu-surface);
+  }
+}

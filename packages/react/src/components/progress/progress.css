@@ -1,0 +1,42 @@
+@layer components {
+  .kivu-progress {
+    --_c: var(--kivu-primary);
+    --_h: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    font-family: var(--kivu-font-body);
+  }
+  .kivu-progress--sm { --_h: 0.25rem; }
+  .kivu-progress--lg { --_h: 0.75rem; }
+  .kivu-progress--accent { --_c: var(--kivu-accent-500); }
+  .kivu-progress--success { --_c: var(--kivu-success-500); }
+  .kivu-progress--danger { --_c: var(--kivu-danger-500); }
+  .kivu-progress__header { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; font-size: var(--kivu-text-sm); }
+  .kivu-progress__label { color: var(--kivu-fg); }
+  .kivu-progress__value { color: var(--kivu-fg-muted); font-variant-numeric: tabular-nums; }
+  .kivu-progress__track {
+    position: relative;
+    height: var(--_h);
+    overflow: hidden;
+    border-radius: var(--kivu-radius-full);
+    background: var(--kivu-bg-subtle);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--kivu-border) 70%, transparent);
+  }
+  .kivu-progress__bar {
+    height: 100%;
+    border-radius: inherit;
+    background: var(--_c);
+    transition: width 300ms var(--kivu-ease);
+  }
+  .kivu-progress__track--indeterminate .kivu-progress__bar {
+    position: absolute;
+    width: 35%;
+    animation: kivu-progress-slide 1.2s ease-in-out infinite;
+  }
+  @keyframes kivu-progress-slide { from { left: -35%; } to { left: 100%; } }
+  @media (prefers-reduced-motion: reduce) {
+    .kivu-progress__track--indeterminate .kivu-progress__bar { animation: none; left: 0; width: 100%; opacity: 0.5; }
+  }
+}

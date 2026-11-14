@@ -1,0 +1,32 @@
+# Dependencies and generated output
+node_modules/
+dist/
+.next/
+out/
+coverage/
+.turbo/
+*.tsbuildinfo
+next-env.d.ts
+
+# Local environment and deployment state
+.env
+.env.*
+!.env.example
+!.env.*.example
+.vercel/
+
+# Logs and package archives
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.tgz
+
+# Editor and operating-system files
+.DS_Store
+.idea/
+.vscode/
+
+# Local-only project files
+local-test/

@@ -1,0 +1,27 @@
+@layer components {
+  .kivu-avatar {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    overflow: hidden;
+    border-radius: 50%;
+    background: var(--kivu-avatar-bg);
+    color: var(--kivu-primary-soft-fg);
+    font-family: var(--kivu-font-body);
+    font-weight: 500;
+    user-select: none;
+  }
+  .kivu-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .kivu-avatar--sm { width: 2rem; height: 2rem; font-size: 0.75rem; }
+  .kivu-avatar--md { width: 2.75rem; height: 2.75rem; font-size: 0.875rem; }
+  .kivu-avatar--lg { width: 3.5rem; height: 3.5rem; font-size: 1.125rem; }
+  .kivu-avatar--xl { width: 5rem; height: 5rem; font-size: 1.5rem; }
+  .kivu-avatar--ring { box-shadow: 0 0 0 2px var(--kivu-avatar-ring); }
+  .kivu-avatar--more { background: var(--kivu-bg-subtle); color: var(--kivu-fg-muted); font-size: 0.8em; }
+
+  .kivu-avatar-group { display: inline-flex; align-items: center; }
+  .kivu-avatar-group > .kivu-avatar + .kivu-avatar,
+  .kivu-avatar-group > .kivu-avatar + * { margin-left: -0.625rem; }
+}

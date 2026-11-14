@@ -1,0 +1,26 @@
+@layer components {
+  .kivu-radio-group { min-width: 0; margin: 0; padding: 0; border: 0; font-family: var(--kivu-font-body); }
+  .kivu-radio-group__label { padding: 0; margin-bottom: 0.5rem; font-size: var(--kivu-text-sm); font-weight: 500; color: var(--kivu-fg); }
+  .kivu-radio-group__description { margin: -0.25rem 0 0.75rem; font-size: var(--kivu-text-xs); color: var(--kivu-fg-muted); }
+  .kivu-radio-group__items { display: flex; flex-direction: column; gap: 0.75rem; }
+  .kivu-radio-group--horizontal .kivu-radio-group__items { flex-direction: row; flex-wrap: wrap; gap: 0.75rem 1.5rem; }
+  .kivu-radio-group > .kivu-field__error { margin-top: 0.5rem; }
+
+  .kivu-radio__input {
+    appearance: none;
+    -webkit-appearance: none;
+    flex: none;
+    width: 1.125rem;
+    height: 1.125rem;
+    margin: 0;
+    border: 1.5px solid var(--kivu-border-strong);
+    border-radius: 50%;
+    background: var(--kivu-surface);
+    cursor: pointer;
+    transition: border-color var(--kivu-duration) var(--kivu-ease), box-shadow var(--kivu-duration) var(--kivu-ease);
+  }
+  .kivu-radio__input:checked { border: 5px solid var(--kivu-primary); }
+  .kivu-radio__input:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--kivu-ring); }
+  .kivu-radio__input:disabled { opacity: 0.5; cursor: not-allowed; }
+  .kivu-radio__input[aria-invalid="true"] { border-color: var(--kivu-danger); }
+}

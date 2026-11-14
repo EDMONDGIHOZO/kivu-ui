@@ -1,0 +1,57 @@
+@layer components {
+  .kivu-tabs { font-family: var(--kivu-font-body); }
+  .kivu-tabs__list { display: flex; overflow-x: auto; scrollbar-width: none; }
+  .kivu-tabs__list::-webkit-scrollbar { display: none; }
+  .kivu-tabs__list--grow > .kivu-tabs__trigger { flex: 1; }
+
+  .kivu-tabs__trigger {
+    position: relative;
+    flex: none;
+    padding: 1rem 1.5rem;
+    background: none;
+    border: 0;
+    font: inherit;
+    font-size: var(--kivu-text-sm);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: var(--kivu-tracking-caps);
+    color: var(--kivu-fg-subtle);
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color var(--kivu-duration) var(--kivu-ease), background-color var(--kivu-duration) var(--kivu-ease);
+  }
+  .kivu-tabs__trigger:hover { color: var(--kivu-fg); }
+  .kivu-tabs__trigger:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--kivu-ring); border-radius: var(--kivu-radius-sm); }
+  .kivu-tabs__trigger:disabled { opacity: 0.45; cursor: not-allowed; }
+  .kivu-tabs__trigger[data-state="active"] { color: var(--kivu-primary); }
+
+  /* underline */
+  .kivu-tabs--underline .kivu-tabs__list { border-bottom: 1px solid var(--kivu-border-strong); }
+  .kivu-tabs--underline .kivu-tabs__trigger::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    background: var(--kivu-primary);
+    transform: scaleX(0);
+    transition: transform var(--kivu-duration) var(--kivu-ease);
+  }
+  .kivu-tabs--underline .kivu-tabs__trigger[data-state="active"]::after { transform: scaleX(1); }
+
+  /* pills */
+  .kivu-tabs--pills .kivu-tabs__list {
+    gap: 0.25rem;
+    padding: 0.25rem;
+    background: var(--kivu-bg-subtle);
+    border-radius: var(--kivu-radius-full);
+    width: fit-content;
+    max-width: 100%;
+  }
+  .kivu-tabs--pills .kivu-tabs__trigger { padding: 0.625rem 1.25rem; border-radius: var(--kivu-radius-full); text-transform: none; letter-spacing: 0; }
+  .kivu-tabs--pills .kivu-tabs__trigger[data-state="active"] { background: var(--kivu-surface); box-shadow: var(--kivu-shadow-sm); }
+
+  .kivu-tabs__panel { padding-top: 2rem; }
+  .kivu-tabs__panel:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--kivu-ring); border-radius: var(--kivu-radius-lg); }
+}

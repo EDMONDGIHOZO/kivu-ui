@@ -1,0 +1,38 @@
+@layer components {
+  .kivu-card {
+    position: relative;
+    display: block;
+    color: var(--kivu-fg);
+    font-family: var(--kivu-font-body);
+    text-decoration: none;
+    transition: transform var(--kivu-duration) var(--kivu-ease), box-shadow var(--kivu-duration) var(--kivu-ease);
+  }
+  .kivu-card--p-none { padding: 0; }
+  .kivu-card--p-sm { padding: 1rem; }
+  .kivu-card--p-md { padding: 1.5rem; }
+  .kivu-card--p-lg { padding: 2.5rem; }
+  .kivu-card--r-md { border-radius: var(--kivu-radius-lg); }
+  .kivu-card--r-lg { border-radius: var(--kivu-radius-xl); }
+  .kivu-card--r-xl { border-radius: var(--kivu-radius-2xl); }
+
+  .kivu-card--elevated { background: var(--kivu-surface); box-shadow: var(--kivu-shadow-md); }
+  .kivu-card--outline { background: var(--kivu-surface); border: 1px solid var(--kivu-border); }
+  .kivu-card--subtle { background: var(--kivu-bg-subtle); }
+  .kivu-card--glass {
+    background: rgb(255 255 255 / 0.14);
+    border: 1px solid rgb(255 255 255 / 0.3);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    color: #fff;
+  }
+  .kivu-card--brand {
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 50% 50%, transparent 0 34%, rgb(255 255 255 / 0.08) 34.2% 34.6%, transparent 34.8% 52%, rgb(255 255 255 / 0.06) 52.2% 52.6%, transparent 52.8%),
+      linear-gradient(135deg, var(--kivu-primary-500), var(--kivu-primary-700));
+    color: #fff;
+  }
+  .kivu-card--interactive { cursor: pointer; }
+  .kivu-card--interactive:hover { transform: translateY(-2px); box-shadow: var(--kivu-shadow-lg); }
+  .kivu-card--interactive:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--kivu-ring); }
+}

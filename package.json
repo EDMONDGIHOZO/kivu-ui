@@ -1,0 +1,14 @@
+{
+  "name": "kivu-ui",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build -w @kivu-ui/react",
+    "dev": "npm run dev -w @kivu-ui/playground",
+    "test": "npm test -w @kivu-ui/react",
+    "typecheck": "npm run typecheck -w @kivu-ui/react"
+  }
+}

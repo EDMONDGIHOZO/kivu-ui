@@ -1,0 +1,127 @@
+@layer components {
+  .kivu-calendar { display: inline-flex; flex-direction: column; gap: 0.5rem; font-family: var(--kivu-font-body); color: var(--kivu-fg); }
+  .kivu-calendar__nav { display: flex; align-items: center; gap: 0.5rem; }
+  .kivu-calendar__titles { display: flex; flex: 1; justify-content: space-around; gap: 1.5rem; }
+  .kivu-calendar__title { font-size: var(--kivu-text-sm); font-weight: 600; }
+  .kivu-calendar__step {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid var(--kivu-border);
+    border-radius: var(--kivu-radius-md);
+    background: var(--kivu-surface);
+    color: var(--kivu-fg-muted);
+    cursor: pointer;
+  }
+  .kivu-calendar__step:hover { color: var(--kivu-fg); background: var(--kivu-bg-subtle); }
+  .kivu-calendar__step:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--kivu-ring); }
+  .kivu-calendar__months { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+  .kivu-calendar__grid { border-collapse: collapse; }
+  .kivu-calendar__weekday { width: 2.375rem; height: 2rem; padding: 0; font-size: var(--kivu-text-xs); font-weight: 500; color: var(--kivu-fg-subtle); text-align: center; }
+  .kivu-calendar__cell { padding: 1px 0; text-align: center; }
+  .kivu-calendar__cell[data-in-range] { background: var(--kivu-primary-soft); }
+  .kivu-calendar__cell[data-range-start] { background: linear-gradient(to right, transparent 50%, var(--kivu-primary-soft) 50%); }
+  .kivu-calendar__cell[data-range-end] { background: linear-gradient(to left, transparent 50%, var(--kivu-primary-soft) 50%); }
+  .kivu-calendar__day {
+    width: 2.375rem;
+    height: 2.375rem;
+    padding: 0;
+    border: 0;
+    border-radius: var(--kivu-radius-md);
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-size: var(--kivu-text-sm);
+    font-variant-numeric: tabular-nums;
+    cursor: pointer;
+  }
+  .kivu-calendar__day:hover:not(:disabled) { background: var(--kivu-bg-subtle); }
+  .kivu-calendar__cell[data-in-range] .kivu-calendar__day:hover { background: color-mix(in srgb, var(--kivu-primary) 15%, transparent); }
+  .kivu-calendar__day:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--kivu-ring); position: relative; }
+  .kivu-calendar__day[data-today] { font-weight: 700; color: var(--kivu-primary); }
+  .kivu-calendar__day[data-selected],
+  .kivu-calendar__day[data-selected]:hover { background: var(--kivu-primary); color: var(--kivu-primary-fg); }
+  .kivu-calendar__day:disabled { opacity: 0.35; cursor: not-allowed; text-decoration: line-through; }
+
+  /* Picker fields (Combobox, DatePicker, DateRangePicker) */
+  .kivu-picker__trigger {
+    display: flex;
+    align-items: center;
+    min-height: 1.5em;
+    text-align: left;
+    cursor: pointer;
+  }
+  .kivu-picker__trigger:disabled { cursor: not-allowed; }
+  .kivu-picker__value { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .kivu-picker__trigger--placeholder { color: var(--kivu-fg-subtle); }
+  .kivu-field--glass .kivu-picker__trigger--placeholder { color: rgb(255 255 255 / 0.75); }
+  .kivu-picker__icon { display: inline-flex; pointer-events: none; }
+  .kivu-picker__clear {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.125rem;
+    padding: 0;
+    border: 0;
+    border-radius: var(--kivu-radius-sm);
+    background: none;
+    color: var(--kivu-fg-subtle);
+    font-size: 0.75rem;
+    cursor: pointer;
+  }
+  .kivu-picker__clear:hover { color: var(--kivu-fg); background: var(--kivu-bg-subtle); }
+  .kivu-picker__clear:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--kivu-ring); }
+
+  .kivu-picker__panel {
+    position: fixed;
+    z-index: 1000;
+    max-width: calc(100vw - 1rem);
+    max-height: calc(100dvh - 1rem);
+    overflow: auto;
+    border: 1px solid var(--kivu-border);
+    border-radius: var(--kivu-radius-xl);
+    background: var(--kivu-surface);
+    color: var(--kivu-fg);
+    box-shadow: var(--kivu-shadow-lg), 0 2px 6px rgb(22 38 51 / 0.08);
+    font-family: var(--kivu-font-body);
+    animation: kivu-pop-in 120ms var(--kivu-ease);
+  }
+  .kivu-picker__panel--dialog { padding: 0.875rem; }
+  @media (prefers-reduced-motion: reduce) { .kivu-picker__panel { animation: none; } }
+
+  .kivu-range-picker__inner { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .kivu-range-picker__presets {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    min-width: 9rem;
+    margin: 0;
+    padding: 0 1rem 0 0;
+    list-style: none;
+    border-right: 1px solid var(--kivu-border);
+  }
+  .kivu-range-picker__preset {
+    width: 100%;
+    padding: 0.4375rem 0.625rem;
+    border: 0;
+    border-radius: var(--kivu-radius-md);
+    background: none;
+    color: var(--kivu-fg-muted);
+    font: inherit;
+    font-size: var(--kivu-text-sm);
+    text-align: left;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .kivu-range-picker__preset:hover { background: var(--kivu-bg-subtle); color: var(--kivu-fg); }
+  .kivu-range-picker__preset[aria-pressed="true"] { background: var(--kivu-primary-soft); color: var(--kivu-primary-soft-fg); font-weight: 500; }
+  .kivu-range-picker__preset:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--kivu-ring); }
+  @media (max-width: 40rem) {
+    .kivu-range-picker__presets { flex-direction: row; flex-wrap: wrap; width: 100%; padding: 0 0 0.75rem; border-right: 0; border-bottom: 1px solid var(--kivu-border); }
+    .kivu-range-picker__preset { width: auto; }
+  }
+}

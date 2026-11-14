@@ -1,0 +1,151 @@
+/*
+ * Kivu UI design tokens.
+ * Override any of these in your own CSS (no layer needed) to theme the library:
+ *   :root { --kivu-primary-600: #7c3aed; --kivu-radius-md: 10px; }
+ */
+@layer theme {
+  :root {
+    /* Brand scale: steel blue (from docs/kivu-ui-colors.ase: 400, 600, 800, 900) */
+    --kivu-primary-50: #eff5fa;
+    --kivu-primary-100: #d6e6f3;
+    --kivu-primary-200: #aecde8;
+    --kivu-primary-300: #8db8df;
+    --kivu-primary-400: #5c9ad1;
+    --kivu-primary-500: #4e82b1;
+    --kivu-primary-600: #406b91;
+    --kivu-primary-700: #325472;
+    --kivu-primary-800: #243c52;
+    --kivu-primary-900: #1e3345;
+
+    /* Accent: ochre */
+    --kivu-accent-50: #fbf3df;
+    --kivu-accent-100: #f5e3b5;
+    --kivu-accent-400: #e0b254;
+    --kivu-accent-500: #d19a2e;
+    --kivu-accent-600: #ae7d1f;
+    --kivu-accent-700: #7a5715;
+
+    /* Neutral "ink" scale (cool greys down to the palette's darkest navy, #162633) */
+    --kivu-ink-50: #f6f8fa;
+    --kivu-ink-100: #eef2f6;
+    --kivu-ink-200: #dfe6ed;
+    --kivu-ink-300: #c5d0db;
+    --kivu-ink-400: #8e9cab;
+    --kivu-ink-500: #6b7a89;
+    --kivu-ink-600: #52606e;
+    --kivu-ink-700: #3a4856;
+    --kivu-ink-800: #263646;
+    --kivu-ink-900: #162633;
+
+    --kivu-success-500: #2f7d4f;
+    --kivu-success-50: #e4f1e8;
+    --kivu-danger-500: #c21f45;
+    --kivu-danger-50: #fbe6eb;
+
+    /* Semantic tokens — components use these */
+    --kivu-bg: #ffffff;
+    --kivu-bg-subtle: var(--kivu-ink-50);
+    --kivu-surface: #ffffff;
+    --kivu-fg: var(--kivu-ink-800);
+    --kivu-fg-muted: var(--kivu-ink-600);
+    --kivu-fg-subtle: var(--kivu-ink-400);
+    --kivu-border: var(--kivu-ink-200);
+    --kivu-border-strong: var(--kivu-ink-300);
+    --kivu-primary: var(--kivu-primary-600);
+    --kivu-primary-hover: var(--kivu-primary-700);
+    --kivu-primary-fg: #ffffff;
+    --kivu-primary-soft: var(--kivu-primary-50);
+    --kivu-primary-soft-hover: var(--kivu-primary-100);
+    --kivu-primary-soft-fg: var(--kivu-primary-600);
+    --kivu-accent: var(--kivu-accent-500);
+    --kivu-accent-fg: var(--kivu-ink-900);
+    --kivu-danger: var(--kivu-danger-500);
+    --kivu-ring: color-mix(in srgb, var(--kivu-primary-500) 45%, transparent);
+    --kivu-avatar-bg: var(--kivu-primary-50);
+    --kivu-avatar-ring: #ffffff;
+
+    /* Typography — the library does not load fonts; load them yourself. */
+    --kivu-font-display: "Martel Sans", ui-sans-serif, system-ui, sans-serif;
+    --kivu-font-body: "Martel Sans", ui-sans-serif, system-ui, sans-serif;
+    --kivu-text-xs: 0.75rem;
+    --kivu-text-sm: 0.875rem;
+    --kivu-text-md: 1rem;
+    --kivu-text-lg: 1.125rem;
+    --kivu-text-xl: 1.5rem;
+    --kivu-text-2xl: 2rem;
+    --kivu-text-3xl: 3rem;
+    --kivu-tracking-caps: 0.06em;
+
+    /* Shape & depth */
+    --kivu-radius-sm: 4px;
+    --kivu-radius-md: 6px;
+    --kivu-radius-lg: 8px;
+    --kivu-radius-xl: 12px;
+    --kivu-radius-2xl: 16px;
+    --kivu-radius-full: 9999px;
+    --kivu-shadow-sm: 0 1px 2px rgb(22 38 51 / 0.06);
+    --kivu-shadow-md: 2px 4px 40px rgb(22 38 51 / 0.08);
+    --kivu-shadow-lg: 2px 4px 80px rgb(22 38 51 / 0.12);
+    --kivu-shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+    /*
+     * Chart palette. Eight categorical series colours, ordered so neighbours stay
+     * distinct for colour-blind readers (validated in light and dark mode).
+     * Use them in order; past 8 series, use a table instead. Text never takes a
+     * series colour: label series with a swatch beside text in --kivu-fg-muted.
+     */
+    --kivu-chart-1: #2f74c0;
+    --kivu-chart-2: #c98a14;
+    --kivu-chart-3: #00907d;
+    --kivu-chart-4: #c4562a;
+    --kivu-chart-5: #b04aa8;
+    --kivu-chart-6: #4f8f2a;
+    --kivu-chart-7: #7056c8;
+    --kivu-chart-8: #d0476b;
+    --kivu-chart-grid: var(--kivu-ink-100);
+    --kivu-chart-axis: var(--kivu-ink-300);
+    --kivu-chart-text: var(--kivu-fg-muted);
+
+    --kivu-duration: 160ms;
+    --kivu-ease: cubic-bezier(0.2, 0, 0, 1);
+    --kivu-container: 1280px;
+  }
+
+  .dark,
+  [data-theme="dark"] {
+    --kivu-bg: #0e1922;
+    --kivu-bg-subtle: #142330;
+    --kivu-surface: #1a2c3c;
+    --kivu-fg: #e8eef4;
+    --kivu-fg-muted: #a9b7c4;
+    --kivu-fg-subtle: #7d8c9a;
+    --kivu-border: #26394b;
+    --kivu-border-strong: #34495d;
+    --kivu-primary: var(--kivu-primary-400);
+    --kivu-primary-hover: var(--kivu-primary-300);
+    --kivu-primary-fg: var(--kivu-ink-900);
+    --kivu-primary-soft: color-mix(in srgb, var(--kivu-primary-400) 18%, transparent);
+    --kivu-primary-soft-hover: color-mix(in srgb, var(--kivu-primary-400) 28%, transparent);
+    --kivu-primary-soft-fg: var(--kivu-primary-200);
+    --kivu-accent-50: color-mix(in srgb, var(--kivu-accent-500) 18%, transparent);
+    --kivu-accent-100: color-mix(in srgb, var(--kivu-accent-500) 28%, transparent);
+    --kivu-accent-700: var(--kivu-accent-400);
+    --kivu-success-50: color-mix(in srgb, var(--kivu-success-500) 18%, transparent);
+    --kivu-danger-50: color-mix(in srgb, var(--kivu-danger-500) 18%, transparent);
+    --kivu-avatar-bg: #26394b;
+    --kivu-avatar-ring: var(--kivu-surface);
+    --kivu-shadow-md: 0 4px 24px rgb(0 0 0 / 0.35);
+    --kivu-shadow-lg: 0 8px 48px rgb(0 0 0 / 0.45);
+    --kivu-chart-1: #4a8dd6;
+    --kivu-chart-2: #bb841c;
+    --kivu-chart-3: #1fa27f;
+    --kivu-chart-4: #d5683b;
+    --kivu-chart-5: #bd5db5;
+    --kivu-chart-6: #5f9e3a;
+    --kivu-chart-7: #8775da;
+    --kivu-chart-8: #d65e7e;
+    --kivu-chart-grid: #26394b;
+    --kivu-chart-axis: #34495d;
+    color-scheme: dark;
+  }
+}

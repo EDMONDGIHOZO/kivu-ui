@@ -1,0 +1,58 @@
+@layer components {
+  .kivu-check { display: flex; align-items: flex-start; gap: 0.625rem; font-family: var(--kivu-font-body); }
+  .kivu-check__text { display: flex; flex-direction: column; gap: 0.125rem; padding-top: 0.0625rem; }
+  .kivu-check__label { font-size: var(--kivu-text-sm); color: var(--kivu-fg); cursor: pointer; }
+  .kivu-check__desc { margin: 0; font-size: var(--kivu-text-xs); color: var(--kivu-fg-muted); }
+
+  .kivu-check__input,
+  .kivu-switch__input {
+    appearance: none;
+    -webkit-appearance: none;
+    flex: none;
+    margin: 0;
+    cursor: pointer;
+    transition: background-color var(--kivu-duration) var(--kivu-ease), border-color var(--kivu-duration) var(--kivu-ease);
+  }
+  .kivu-check__input:focus-visible,
+  .kivu-switch__input:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--kivu-ring); }
+  .kivu-check__input:disabled,
+  .kivu-switch__input:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .kivu-check__input {
+    width: 1.125rem;
+    height: 1.125rem;
+    border: 1.5px solid var(--kivu-border-strong);
+    border-radius: var(--kivu-radius-sm);
+    background: var(--kivu-surface) center / 0.75rem no-repeat;
+  }
+  .kivu-check__input:checked,
+  .kivu-check__input:indeterminate { background-color: var(--kivu-primary); border-color: var(--kivu-primary); }
+  .kivu-check__input:checked {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m2.5 6.2 2.3 2.3 4.7-5'/%3E%3C/svg%3E");
+  }
+  .kivu-check__input:indeterminate {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' stroke='white' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M3 6h6'/%3E%3C/svg%3E");
+  }
+
+  .kivu-switch__input {
+    position: relative;
+    width: 2.5rem;
+    height: 1.375rem;
+    border-radius: var(--kivu-radius-full);
+    background: var(--kivu-border-strong);
+  }
+  .kivu-switch__input::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: var(--kivu-shadow-sm);
+    transition: transform var(--kivu-duration) var(--kivu-ease);
+  }
+  .kivu-switch__input:checked { background: var(--kivu-primary); }
+  .kivu-switch__input:checked::before { transform: translateX(1.125rem); }
+}

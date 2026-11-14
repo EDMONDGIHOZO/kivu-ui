@@ -1,0 +1,22 @@
+@layer components {
+  .kivu-popover {
+    position: fixed;
+    z-index: 1000;
+    min-width: 12rem;
+    max-width: calc(100vw - 1rem);
+    max-height: calc(100dvh - 1rem);
+    overflow: auto;
+    padding: 1rem;
+    border: 1px solid var(--kivu-border);
+    border-radius: var(--kivu-radius-xl);
+    background: var(--kivu-surface);
+    color: var(--kivu-fg);
+    box-shadow: var(--kivu-shadow-lg), 0 2px 6px rgb(22 38 51 / 0.08);
+    font-family: var(--kivu-font-body);
+    font-size: var(--kivu-text-sm);
+    animation: kivu-pop-in 140ms var(--kivu-ease);
+  }
+  .kivu-popover:focus-visible { outline: none; }
+  .kivu-popover[data-side="top"] { transform-origin: bottom; }
+  @media (prefers-reduced-motion: reduce) { .kivu-popover { animation: none; } }
+}

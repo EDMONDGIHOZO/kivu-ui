@@ -1,0 +1,47 @@
+@layer components {
+  .kivu-menu {
+    position: fixed;
+    z-index: 1000;
+    min-width: 11rem;
+    max-width: calc(100vw - 1rem);
+    max-height: min(24rem, calc(100dvh - 1rem));
+    overflow-y: auto;
+    padding: 0.3125rem;
+    border: 1px solid var(--kivu-border);
+    border-radius: var(--kivu-radius-lg);
+    background: var(--kivu-surface);
+    color: var(--kivu-fg);
+    box-shadow: var(--kivu-shadow-lg), 0 2px 6px rgb(22 38 51 / 0.08);
+    font-family: var(--kivu-font-body);
+    font-size: var(--kivu-text-sm);
+    animation: kivu-pop-in 120ms var(--kivu-ease);
+  }
+  .kivu-menu:focus { outline: none; }
+  @media (prefers-reduced-motion: reduce) { .kivu-menu { animation: none; } }
+
+  .kivu-menu__item {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    min-height: 2.125rem;
+    padding: 0 0.625rem;
+    border-radius: var(--kivu-radius-md);
+    color: var(--kivu-fg);
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+  }
+  .kivu-menu__item:focus { background: var(--kivu-bg-subtle); }
+  .kivu-menu__item[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; }
+  .kivu-menu__item--danger { color: var(--kivu-danger-500); }
+  .kivu-menu__item--danger:focus { background: var(--kivu-danger-50); }
+  .kivu-menu__icon { display: inline-flex; flex: none; width: 1rem; color: var(--kivu-fg-subtle); }
+  .kivu-menu__item--danger .kivu-menu__icon { color: inherit; }
+  .kivu-menu__icon > svg { width: 1rem; height: 1rem; }
+  .kivu-menu__check { color: var(--kivu-primary); }
+  .kivu-menu__text { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .kivu-menu__shortcut { margin-left: auto; padding-left: 1rem; font-size: var(--kivu-text-xs); color: var(--kivu-fg-subtle); letter-spacing: 0.04em; }
+  .kivu-menu__label { padding: 0.5rem 0.625rem 0.25rem; font-size: var(--kivu-text-xs); font-weight: 600; color: var(--kivu-fg-subtle); }
+  .kivu-menu__separator { height: 1px; margin: 0.3125rem -0.3125rem; background: var(--kivu-border); }
+}

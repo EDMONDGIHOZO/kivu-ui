@@ -1,0 +1,81 @@
+/*
+ * Optional Tailwind CSS v4 preset for Kivu UI.
+ *
+ *   @import "tailwindcss";
+ *   @import "@kivu-ui/react/styles.css";
+ *   @import "@kivu-ui/react/tailwind.css";
+ *
+ * Exposes the Kivu UI tokens as Tailwind utilities, e.g.
+ *   bg-primary-600  bg-chart-3  text-ink-800  border-line  font-display  shadow-kivu-md
+ * Values point at the --kivu-* variables, so theming via CSS variables keeps
+ * Tailwind utilities and components in sync (including dark mode).
+ */
+@theme inline {
+  --color-primary-50: var(--kivu-primary-50);
+  --color-primary-100: var(--kivu-primary-100);
+  --color-primary-200: var(--kivu-primary-200);
+  --color-primary-300: var(--kivu-primary-300);
+  --color-primary-400: var(--kivu-primary-400);
+  --color-primary-500: var(--kivu-primary-500);
+  --color-primary-600: var(--kivu-primary-600);
+  --color-primary-700: var(--kivu-primary-700);
+  --color-primary-800: var(--kivu-primary-800);
+  --color-primary-900: var(--kivu-primary-900);
+  --color-primary: var(--kivu-primary);
+
+  --color-accent-50: var(--kivu-accent-50);
+  --color-accent-100: var(--kivu-accent-100);
+  --color-accent-400: var(--kivu-accent-400);
+  --color-accent-500: var(--kivu-accent-500);
+  --color-accent-600: var(--kivu-accent-600);
+  --color-accent-700: var(--kivu-accent-700);
+  --color-accent: var(--kivu-accent);
+
+  --color-chart-1: var(--kivu-chart-1);
+  --color-chart-2: var(--kivu-chart-2);
+  --color-chart-3: var(--kivu-chart-3);
+  --color-chart-4: var(--kivu-chart-4);
+  --color-chart-5: var(--kivu-chart-5);
+  --color-chart-6: var(--kivu-chart-6);
+  --color-chart-7: var(--kivu-chart-7);
+  --color-chart-8: var(--kivu-chart-8);
+
+  --color-ink-50: var(--kivu-ink-50);
+  --color-ink-100: var(--kivu-ink-100);
+  --color-ink-200: var(--kivu-ink-200);
+  --color-ink-300: var(--kivu-ink-300);
+  --color-ink-400: var(--kivu-ink-400);
+  --color-ink-500: var(--kivu-ink-500);
+  --color-ink-600: var(--kivu-ink-600);
+  --color-ink-700: var(--kivu-ink-700);
+  --color-ink-800: var(--kivu-ink-800);
+  --color-ink-900: var(--kivu-ink-900);
+
+  --color-surface: var(--kivu-surface);
+  --color-canvas: var(--kivu-bg);
+  --color-canvas-subtle: var(--kivu-bg-subtle);
+  --color-fg: var(--kivu-fg);
+  --color-fg-muted: var(--kivu-fg-muted);
+  --color-fg-subtle: var(--kivu-fg-subtle);
+  --color-line: var(--kivu-border);
+  --color-line-strong: var(--kivu-border-strong);
+  --color-success: var(--kivu-success-500);
+  --color-danger: var(--kivu-danger-500);
+
+  --font-display: var(--kivu-font-display);
+  --font-body: var(--kivu-font-body);
+
+  --radius-kivu-sm: var(--kivu-radius-sm);
+  --radius-kivu-md: var(--kivu-radius-md);
+  --radius-kivu-lg: var(--kivu-radius-lg);
+  --radius-kivu-xl: var(--kivu-radius-xl);
+  --radius-kivu-2xl: var(--kivu-radius-2xl);
+
+  --shadow-kivu-sm: var(--kivu-shadow-sm);
+  --shadow-kivu-md: var(--kivu-shadow-md);
+  --shadow-kivu-lg: var(--kivu-shadow-lg);
+  --shadow-kivu-xl: var(--kivu-shadow-xl);
+}
+
+/* Lets `dark:` utilities follow the same switch as Kivu UI (.dark or data-theme). */
+@custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));

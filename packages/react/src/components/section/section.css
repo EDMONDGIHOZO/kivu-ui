@@ -1,0 +1,92 @@
+@layer components {
+  /* Icon tile: rounded square (same corner ratio as the logo) with faint concentric "wave" arcs. */
+  .kivu-icon-tile {
+    --_s: 3.5rem;
+    --_c: var(--kivu-primary-600);
+    --_bg: var(--kivu-primary-soft);
+    --_bd: color-mix(in srgb, var(--kivu-primary-500) 22%, transparent);
+    --_wave: color-mix(in srgb, var(--kivu-primary-500) 14%, transparent);
+    position: relative;
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: var(--_s);
+    height: var(--_s);
+    border-radius: 28%;
+    border: 1px solid var(--_bd);
+    color: var(--_c);
+    font-size: calc(var(--_s) * 0.42);
+    background:
+      repeating-radial-gradient(circle at 0% 115%, transparent 0 5px, var(--_wave) 5px 6px) bottom left / 70% 55% no-repeat,
+      var(--_bg);
+    overflow: hidden;
+  }
+  .kivu-icon-tile > svg { position: relative; width: 1em; height: 1em; }
+  .kivu-icon-tile--sm { --_s: 2.5rem; }
+  .kivu-icon-tile--lg { --_s: 4.5rem; }
+  .kivu-icon-tile--accent {
+    --_c: var(--kivu-accent-700);
+    --_bg: var(--kivu-accent-50);
+    --_bd: color-mix(in srgb, var(--kivu-accent-500) 30%, transparent);
+    --_wave: color-mix(in srgb, var(--kivu-accent-500) 22%, transparent);
+  }
+  .kivu-icon-tile--solid {
+    --_c: #fff;
+    --_bd: transparent;
+    --_wave: rgb(255 255 255 / 0.16);
+    --_bg: linear-gradient(140deg, var(--kivu-primary-400), var(--kivu-primary-700));
+  }
+  .kivu-icon-tile--solid.kivu-icon-tile--accent {
+    --_c: var(--kivu-ink-900);
+    --_wave: rgb(255 255 255 / 0.28);
+    --_bg: linear-gradient(140deg, var(--kivu-accent-400), var(--kivu-accent-600));
+  }
+  :where(.dark, [data-theme="dark"]) .kivu-icon-tile--soft.kivu-icon-tile--primary { --_c: var(--kivu-primary-200); }
+
+  .kivu-section-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 48rem;
+    font-family: var(--kivu-font-body);
+  }
+  .kivu-section-header--center { align-items: center; text-align: center; margin-inline: auto; }
+  .kivu-section-header--start { align-items: flex-start; text-align: left; }
+  .kivu-section-header > .kivu-icon-tile { margin-bottom: 0.5rem; }
+
+  .kivu-section-header__eyebrow {
+    margin: 0;
+    font-size: var(--kivu-text-sm);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: var(--kivu-tracking-caps);
+    color: var(--kivu-primary);
+  }
+  .kivu-section-header__title {
+    margin: 0;
+    font-family: var(--kivu-font-display);
+    font-size: clamp(2rem, 1.4rem + 2.4vw, var(--kivu-text-3xl));
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    color: var(--kivu-fg);
+    text-wrap: balance;
+  }
+  .kivu-section-header__description {
+    margin: 0;
+    max-width: 34rem;
+    font-size: var(--kivu-text-lg);
+    line-height: 1.6;
+    color: var(--kivu-fg-muted);
+    text-wrap: pretty;
+  }
+  .kivu-section-header__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
+  .kivu-section-header--center .kivu-section-header__actions { justify-content: center; }
+
+  .kivu-section-header--inverted .kivu-section-header__title { color: #fff; }
+  .kivu-section-header--inverted .kivu-section-header__description { color: rgb(255 255 255 / 0.82); }
+  .kivu-section-header--inverted .kivu-section-header__eyebrow { color: rgb(255 255 255 / 0.9); }
+
+  .kivu-highlight { color: var(--kivu-accent-500); }
+}

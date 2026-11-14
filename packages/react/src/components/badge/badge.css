@@ -1,0 +1,51 @@
+@layer components {
+  .kivu-badge {
+    --_c: var(--kivu-primary);
+    --_soft: var(--kivu-primary-soft);
+    --_soft-fg: var(--kivu-primary-soft-fg);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375em;
+    border: 1px solid transparent;
+    border-radius: var(--kivu-radius-full);
+    font-family: var(--kivu-font-body);
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+  .kivu-badge--sm { padding: 0.25em 0.55em; font-size: 0.625rem; }
+  .kivu-badge--md { padding: 0.375em 0.75em; font-size: var(--kivu-text-xs); }
+  .kivu-badge--caps { text-transform: uppercase; letter-spacing: var(--kivu-tracking-caps); }
+
+  .kivu-badge--accent { --_c: var(--kivu-accent-500); --_soft: var(--kivu-accent-50); --_soft-fg: var(--kivu-accent-700); }
+  .kivu-badge--neutral { --_c: var(--kivu-ink-600); --_soft: var(--kivu-bg-subtle); --_soft-fg: var(--kivu-fg-muted); }
+  .kivu-badge--success { --_c: var(--kivu-success-500); --_soft: var(--kivu-success-50); --_soft-fg: var(--kivu-success-500); }
+  .kivu-badge--danger { --_c: var(--kivu-danger-500); --_soft: var(--kivu-danger-50); --_soft-fg: var(--kivu-danger-500); }
+
+  .kivu-badge--solid { background: var(--_c); color: #fff; }
+  .kivu-badge--accent.kivu-badge--solid { color: var(--kivu-accent-fg); }
+  .kivu-badge--soft { background: var(--_soft); color: var(--_soft-fg); }
+  .kivu-badge--outline { border-color: currentColor; color: var(--_soft-fg); }
+
+  .kivu-badge--removable { padding-right: 0.25em; }
+  .kivu-badge__remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.4em;
+    height: 1.4em;
+    margin: -0.2em 0 -0.2em 0.05em;
+    padding: 0;
+    border: 0;
+    border-radius: var(--kivu-radius-full);
+    background: transparent;
+    color: inherit;
+    font-size: inherit;
+    opacity: 0.7;
+    cursor: pointer;
+  }
+  .kivu-badge__remove > svg { width: 0.85em; height: 0.85em; }
+  .kivu-badge__remove:hover { opacity: 1; background: color-mix(in srgb, currentColor 15%, transparent); }
+  .kivu-badge__remove:focus-visible { outline: none; opacity: 1; box-shadow: 0 0 0 2px var(--kivu-ring); }
+}
