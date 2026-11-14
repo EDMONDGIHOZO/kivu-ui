@@ -2,7 +2,7 @@
 
 A lightweight React component library that plays nicely with Tailwind CSS.
 
-- **Tiny**: ~6 KB JS + ~5 KB CSS (gzipped) for the whole library, zero runtime dependencies.
+- **Zero runtime dependencies**: React and React DOM remain peer dependencies.
 - **No CSS-in-JS**: plain CSS + CSS variables. Works with Next.js App Router / RSC (components ship as `"use client"`).
 - **Tailwind-friendly**: component styles live in `@layer components`, so any utility you pass via `className` wins. No `tailwind-merge` needed.
 - **Accessible**: keyboard-navigable Tabs, ARIA-wired Accordion and form fields, native `<dialog>` Modal.
@@ -14,7 +14,7 @@ A lightweight React component library that plays nicely with Tailwind CSS.
 npm install @kivu-ui/react
 ```
 
-React 18 or 19 is required.
+React 18 or 19 is required. Kivu UI is currently in its `0.x` release series, so minor releases may refine the public API.
 
 ## Setup
 
@@ -85,7 +85,7 @@ export function Hero() {
 |---|---|
 | `Button` | `variant`: solid · soft · outline · ghost · glass · link. `tone`: primary · accent · danger. `size`: sm · md · lg. `loading`, `fullWidth`, `leftSection`/`rightSection`, `asChild` |
 | `IconButton` | Requires `aria-label`. `variant` adds `white`. `shape`: circle · square |
-| `Badge` | `variant`: solid · soft · outline. `tone`: primary · accent · neutral · success · danger. `caps` for eyebrow style |
+| `Badge` | `variant`: solid · soft · outline. `tone`: primary · accent · neutral · success · danger. `caps` for compact labels |
 | `Input`, `Textarea`, `Select` | `label` (inside the box by default, `labelPosition="outside"` to move it), `description`, `error`, `leftSection`/`rightSection`. `variant`: default · filled · glass |
 | `Checkbox`, `Switch` | Native inputs with `label`/`description`; Checkbox supports `indeterminate` |
 | `Tabs`, `TabsList`, `TabsTrigger`, `TabsPanel` | Controlled or uncontrolled. Arrow / Home / End keys. `variant`: underline · pills. `grow` on the list |
@@ -96,6 +96,17 @@ export function Hero() {
 | `Banner` | Dismissible announcement bar with an optional `action` |
 | `Modal` | Native `<dialog>`: focus trap, Escape, and backdrop click built in |
 | `Container`, `Divider`, `Spinner` | Layout helpers |
+| `AppShell`, `Sidebar`, `Topbar` | Application layout with responsive sidebar state |
+| `PageHeader`, `Breadcrumbs` | Page titles, navigation context and actions |
+| `Drawer` | Edge-aligned overlay panel |
+| `Tooltip`, `Popover`, `DropdownMenu` | Floating and contextual interactions |
+| `Table`, `DataTable` | Table primitives and sortable data presentation |
+| `Pagination` | Page navigation with compact ranges |
+| `EmptyState`, `Skeleton`, `Progress` | Loading, progress and empty-content feedback |
+| `Toaster`, `toast` | Imperative toast notifications |
+| `RadioGroup`, `SegmentedControl`, `Combobox` | Selection controls for simple and searchable choices |
+| `Calendar`, `DatePicker`, `DateRangePicker` | Calendar and date-selection primitives |
+| `StatCard`, `Sparkline` | Compact metrics and lightweight charting |
 | `cx`, `Slot` | Utilities for building your own components |
 
 ## Theming
@@ -111,6 +122,12 @@ All colours, radii, shadows and fonts are CSS variables. Override them in your o
 ```
 
 Dark mode: add `class="dark"` or `data-theme="dark"` on `<html>` or any wrapper.
+
+## Project links
+
+- [Source code](https://github.com/EDMONDGIHOZO/kivu-ui)
+- [Issues](https://github.com/EDMONDGIHOZO/kivu-ui/issues)
+- [Changelog](CHANGELOG.md)
 
 ## License
 

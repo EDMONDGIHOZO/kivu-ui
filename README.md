@@ -27,6 +27,12 @@ Package usage and component documentation live in [packages/react/README.md](pac
 
 Publishing is intentionally not automated yet. The npm package allowlist excludes raw TypeScript, tests, applications, and source maps.
 
+## Contributing and releases
+
+- [Contributing guide](CONTRIBUTING.md)
+- [Release process](docs/RELEASING.md)
+- [Package changelog](packages/react/CHANGELOG.md)
+
 ## License
 
 MIT

@@ -2,7 +2,17 @@
   "name": "@kivu-ui/react",
   "version": "0.1.0",
   "description": "A lightweight, Tailwind-friendly React component library.",
+  "author": "Edmond Gihozo",
   "license": "MIT",
+  "homepage": "https://github.com/EDMONDGIHOZO/kivu-ui#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EDMONDGIHOZO/kivu-ui.git",
+    "directory": "packages/react"
+  },
+  "bugs": {
+    "url": "https://github.com/EDMONDGIHOZO/kivu-ui/issues"
+  },
   "type": "module",
   "sideEffects": [
     "**/*.css"
@@ -10,11 +20,13 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "style": "./dist/styles.css",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
     },
     "./styles.css": "./dist/styles.css",
     "./tailwind.css": "./dist/tailwind.css",
@@ -27,17 +39,23 @@
     "dist/styles.css",
     "dist/tailwind.css",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "keywords": [
     "react",
     "ui",
     "components",
     "design-system",
-    "tailwind"
+    "tailwind",
+    "tailwindcss",
+    "typescript",
+    "accessible",
+    "nextjs"
   ],
   "scripts": {
     "build": "tsup && tsc -p tsconfig.build.json && node scripts/build-css.mjs",
@@ -47,8 +65,8 @@
     "prepublishOnly": "npm run typecheck && npm test && npm run build"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18"
+    "react": ">=18 <20",
+    "react-dom": ">=18 <20"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^7.0.1",
