@@ -1,0 +1,45 @@
+name: Publish to npm
+
+# Runs when a GitHub Release is published. The release tag (e.g. v0.2.0)
+# must match the version in packages/react/package.json.
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  id-token: write # lets npm Trusted Publishing verify this workflow (no npm token needed)
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          registry-url: https://registry.npmjs.org
+
+      - name: Check release tag matches package version
+        id: version
+        run: |
+          VERSION=$(node -p "require('./packages/react/package.json').version")
+          TAG="${GITHUB_REF_NAME#v}"
+          if [ "$VERSION" != "$TAG" ]; then
+            echo "::error::Release tag $GITHUB_REF_NAME does not match package version $VERSION"
+            exit 1
+          fi
+          if npm view "kivu-ui@$VERSION" version >/dev/null 2>&1; then
+            echo "kivu-ui@$VERSION is already on npm, skipping publish."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install
+        if: steps.version.outputs.skip != 'true'
+        run: npm ci
+
+      # prepublishOnly runs typecheck, tests and build before publishing.
+      - name: Publish
+        if: steps.version.outputs.skip != 'true'
+        run: npm publish -w kivu-ui
