@@ -1,40 +1,39 @@
 # Releasing `kivu-ui`
 
-This repository has not published an npm release yet. Do not run the publish command until the release pull request is approved and the npm scope is ready.
+Releases are published to npm automatically by `.github/workflows/publish.yml`
+when a GitHub Release is published. It uses npm Trusted Publishing, so no npm
+token is stored in GitHub, and npm shows a provenance badge for each version.
 
-## First-release prerequisites
+## Release steps
 
-- Confirm you are logged in to npm as the package owner (`npm whoami`).
-- Enable two-factor authentication on the publishing npm account.
-- Use a Node version supported by the root `package.json`.
-- Confirm `kivu-ui` is still unused on the npm registry.
-- Replace `Unreleased` in `packages/react/CHANGELOG.md` with the release date.
-- Merge the release preparation through a pull request so `main` remains protected.
+1. On a branch, bump `version` in `packages/react/package.json` and add an entry
+   to `packages/react/CHANGELOG.md`. Run `npm install` so `package-lock.json`
+   picks up the new version.
+2. Verify locally:
 
-## Local verification
+   ```bash
+   npm ci
+   npm run typecheck
+   npm test
+   npm run build
+   npm run pack:check
+   ```
 
-From a clean checkout of `main`:
+   The pack output must contain only compiled JavaScript, declaration files,
+   CSS, package metadata, README, changelog and license.
+3. Merge the branch into `main` through a pull request.
+4. On GitHub, create a Release from `main` with a new tag `v<version>`
+   (for example `v0.2.0`) and publish it.
+5. Watch the **Publish to npm** run under the repository's Actions tab.
 
-```bash
-npm ci
-npm run typecheck
-npm test
-npm run build
-npm run pack:check
-```
+The workflow fails if the tag does not match the package version, and skips
+publishing if that version is already on npm.
 
-Inspect the pack output. It must contain only the compiled JavaScript, declaration files, CSS, package metadata, README, changelog and license. It must not contain source maps, raw TypeScript, tests, the playground or repository configuration.
+## One-time setup
 
-## First publication
+On npmjs.com, open the `kivu-ui` package → Settings → Trusted Publisher, choose
+GitHub Actions and enter:
 
-The package has `publishConfig.access` set to `public`, so the eventual release command is:
-
-```bash
-npm publish -w kivu-ui
-```
-
-After npm confirms the publication, create and push the matching `v0.1.0` tag and create a GitHub release from that tag.
-
-## Subsequent publications
-
-After the first package exists on npm, configure npm Trusted Publishing for the public GitHub repository and move publication to a reviewed GitHub Actions workflow. Prefer short-lived OIDC credentials over long-lived npm tokens.
+- Organization or user: `EDMONDGIHOZO`
+- Repository: `kivu-ui`
+- Workflow filename: `publish.yml`
