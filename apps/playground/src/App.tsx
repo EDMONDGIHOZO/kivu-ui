@@ -27,7 +27,7 @@ import {
   TabsPanel,
   TabsTrigger,
   Textarea,
-} from "@kivu-ui/react";
+} from "kivu-ui";
 
 /* --- tiny inline icon set (stroke icons, 1em) --- */
 const Icon = ({ d }: { d: string }) => (

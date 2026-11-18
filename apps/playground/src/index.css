@@ -1,6 +1,6 @@
 @import "tailwindcss";
-@import "@kivu-ui/react/styles.css";
-@import "@kivu-ui/react/tailwind.css";
+@import "kivu-ui/styles.css";
+@import "kivu-ui/tailwind.css";
 
 body {
   @apply bg-canvas text-fg font-body antialiased;
