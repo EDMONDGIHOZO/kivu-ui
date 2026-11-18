@@ -2,7 +2,7 @@
 
 # Kivu UI
 
-Open-source home of **@kivu-ui/react**, a lightweight, Tailwind-friendly React component library.
+Open-source home of **kivu-ui**, a lightweight, Tailwind-friendly React component library.
 
 ## Repository layout
 

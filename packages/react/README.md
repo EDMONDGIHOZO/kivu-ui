@@ -1,4 +1,4 @@
-# @kivu-ui/react
+# kivu-ui
 
 A lightweight React component library that plays nicely with Tailwind CSS.
 
@@ -11,7 +11,7 @@ A lightweight React component library that plays nicely with Tailwind CSS.
 ## Install
 
 ```bash
-npm install @kivu-ui/react
+npm install kivu-ui
 ```
 
 React 18 or 19 is required. Kivu UI is currently in its `0.x` release series, so minor releases may refine the public API.
@@ -23,8 +23,8 @@ React 18 or 19 is required. Kivu UI is currently in its `0.x` release series, so
 ```css
 /* app.css */
 @import "tailwindcss";
-@import "@kivu-ui/react/styles.css";
-@import "@kivu-ui/react/tailwind.css"; /* optional: Kivu UI tokens as Tailwind utilities */
+@import "kivu-ui/styles.css";
+@import "kivu-ui/tailwind.css"; /* optional: Kivu UI tokens as Tailwind utilities */
 ```
 
 The optional preset gives you utilities that follow the theme, such as `bg-primary-600`, `text-ink-800`, `text-fg-muted`, `border-line`, `bg-surface`, `font-display`, `rounded-kivu-lg`, and `shadow-kivu-md`. It also makes the `dark:` variant follow the same `.dark` / `data-theme` switch.
@@ -32,7 +32,7 @@ The optional preset gives you utilities that follow the theme, such as `bg-prima
 ### Without Tailwind
 
 ```ts
-import "@kivu-ui/react/styles.css";
+import "kivu-ui/styles.css";
 ```
 
 ### Fonts
@@ -49,7 +49,7 @@ The library does not load fonts. The default is `Martel Sans` (display and body)
 ## Usage
 
 ```tsx
-import { Button, Input, SectionHeader, Tabs, TabsList, TabsTrigger, TabsPanel } from "@kivu-ui/react";
+import { Button, Input, SectionHeader, Tabs, TabsList, TabsTrigger, TabsPanel } from "kivu-ui";
 
 export function Hero() {
   return (

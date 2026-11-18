@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `@kivu-ui/react` will be documented here.
+All notable changes to `kivu-ui` will be documented here.
 
 The project follows [Semantic Versioning](https://semver.org/). While the package is in `0.x`, minor releases may include public API refinements.
 

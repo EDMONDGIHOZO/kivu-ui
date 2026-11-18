@@ -1,5 +1,5 @@
 {
-  "name": "@kivu-ui/react",
+  "name": "kivu-ui",
   "version": "0.1.0",
   "description": "A lightweight, Tailwind-friendly React component library.",
   "author": "Edmond Gihozo",

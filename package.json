@@ -1,5 +1,5 @@
 {
-  "name": "kivu-ui",
+  "name": "kivu-ui-monorepo",
   "private": true,
   "workspaces": [
     "apps/*",
@@ -11,10 +11,10 @@
   },
   "packageManager": "npm@11.19.1",
   "scripts": {
-    "build": "npm run build -w @kivu-ui/react",
-    "dev": "npm run dev -w @kivu-ui/playground",
-    "pack:check": "npm pack --dry-run -w @kivu-ui/react --ignore-scripts",
-    "test": "npm test -w @kivu-ui/react",
-    "typecheck": "npm run typecheck -w @kivu-ui/react"
+    "build": "npm run build -w kivu-ui",
+    "dev": "npm run dev -w kivu-ui-playground",
+    "pack:check": "npm pack --dry-run -w kivu-ui --ignore-scripts",
+    "test": "npm test -w kivu-ui",
+    "typecheck": "npm run typecheck -w kivu-ui"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@kivu-ui/playground",
+  "name": "kivu-ui-playground",
   "private": true,
   "type": "module",
   "scripts": {
@@ -7,7 +7,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@kivu-ui/react": "*"
+    "kivu-ui": "*"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.5",

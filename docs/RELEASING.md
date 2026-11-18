@@ -1,13 +1,13 @@
-# Releasing `@kivu-ui/react`
+# Releasing `kivu-ui`
 
 This repository has not published an npm release yet. Do not run the publish command until the release pull request is approved and the npm scope is ready.
 
 ## First-release prerequisites
 
-- Confirm the `@kivu-ui` npm scope is owned by the intended account or organization.
+- Confirm you are logged in to npm as the package owner (`npm whoami`).
 - Enable two-factor authentication on the publishing npm account.
 - Use a Node version supported by the root `package.json`.
-- Confirm `@kivu-ui/react` is still unused on the npm registry.
+- Confirm `kivu-ui` is still unused on the npm registry.
 - Replace `Unreleased` in `packages/react/CHANGELOG.md` with the release date.
 - Merge the release preparation through a pull request so `main` remains protected.
 
@@ -30,7 +30,7 @@ Inspect the pack output. It must contain only the compiled JavaScript, declarati
 The package has `publishConfig.access` set to `public`, so the eventual release command is:
 
 ```bash
-npm publish -w @kivu-ui/react
+npm publish -w kivu-ui
 ```
 
 After npm confirms the publication, create and push the matching `v0.1.0` tag and create a GitHub release from that tag.
